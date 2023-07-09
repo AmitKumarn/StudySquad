@@ -1,0 +1,269 @@
+body {
+    background-color: #EEEEEE;
+    color: #333333;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+}
+h1,h2,h3,h4,p{
+  margin: 0;
+}
+img{
+  max-width: 100px;
+}
+
+.container{
+  width: 90%;
+  background-color: white;
+  margin: 12px auto;
+  border-radius: 10px;
+}
+
+.user-info{
+  display: flex;
+  padding: 15px;
+}
+.user-img{
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 3px solid rgb(196, 230, 196);
+}
+.user-details{
+  padding: 10px;
+  width: 100%;
+}
+.user-name{
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+#dot{
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.thread-title{
+  padding: 15px 15px 8px 15px;
+  color: #212121;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+}
+.thread-desc{
+  padding: 0 15px 15px 15px;
+  width: 95%;
+  line-height: 20px;
+}
+
+.thread-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px 10px 15px;
+  width: 95%;
+}
+.comment-count{
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+#like{
+  color: rgb(216, 216, 216);
+  font-size: 32px;
+  cursor: pointer;
+}
+#like.change-color{
+  color: rgb(240, 32, 32);
+}
+
+hr{
+  margin-left: 15px;
+  width: 95%;
+  height: 1px;
+  background-color: #212121;
+}
+
+.comment-section{
+  background-color: #ececec;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 15px;
+  overflow-y: auto;
+  max-height: 530px;
+}
+.comment-section::-webkit-scrollbar{
+  width: 0;
+}
+.comment-item{
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+
+}
+.comment-item img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.comment-info{
+  background-color: white;
+  padding: 12px;
+  border-radius: 5px;
+}
+.commenter{
+  display: flex;
+  justify-content: space-between;
+}
+.commenter p{
+  font-size: 14px;
+}
+.comment-desc{
+  width: 95%;
+  text-align: left;
+}
+.comment p{
+  margin-left: 70px;
+  margin-bottom: 10px;
+}
+
+.reply-opt{
+  margin-left: 70px;
+  font-weight: 600;
+  color: #4671EA;
+  cursor: pointer;
+}
+.reply-box{
+  margin-left: 70px;
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  display: none;
+}
+.reply-box.open-reply{
+  display: flex;
+}
+#replyBox{
+  width: 40%;
+}
+
+.btn{
+  background-color: rgb(130, 167, 240);
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: rgb(50, 114, 242);
+}
+.reply{
+  margin-left: 70px;
+  padding: 10px;
+  overflow-y: auto;
+  max-height: 250px;
+}
+.reply::-webkit-scrollbar{
+  width: 0;
+}
+
+.reply-item{
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+}
+.reply-item img{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.reply-info{
+  background-color: white;
+  padding: 12px;
+  border-radius: 5px;
+}
+.replier{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+.replier p{
+  font-size: 13px;
+}
+
+.box{
+  width: 40%;
+  height: 50px;
+  padding: 15px;
+  outline: none;
+  resize: none;
+  font-size: 16px;
+  border-radius: 5px;
+  border-color: #bfbfbf;
+  max-height: 250px;
+}
+.box:is(:focus-visible){
+  border-width: 2px;
+  padding: 14px;
+  border-color: #4671EA;
+}
+textarea::-webkit-scrollbar{
+  width: 0px;
+}
+.comment-box{
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.comment-box textarea{
+  margin-bottom: 15px;
+  width: 50%;
+}
+.comment-box button{
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 545px) {
+  h3{
+    font-size: 16px;
+  }
+  .container{
+    width: 95%;
+  }
+  .thread-title{
+    font-size: 16px;
+  }
+  .thread-desc{
+    font-size: 14px;
+    width: 90%;
+    text-align: left;
+  }
+  .user-img{
+    width: 60px;
+    height: 60px;
+  }
+  .comment-item img{
+    width: 40px;
+    height: 40px;
+  }
+  .reply-item img{
+    width: 35px;
+    height: 35px;
+  }
+  .comment-box textarea{
+    width: 80%;
+  }
+  #replyBox{
+    width: 80%;
+    font-size: 14px;
+  }
+  .reply{
+    margin-right: 10px;
+    margin-left: 40px;
+  }
+  
+}
