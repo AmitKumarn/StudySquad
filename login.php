@@ -1,12 +1,17 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
-    <title>Login/Signup</title>
+    <title>Login/Signup - StudySquad</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 </head>
+
 <body>
-    <div><p></p></div>
+    <div>
+        <p></p>
+    </div>
     <div class="container" id="main-container">
         <div class="left-section">
             <img src="img/login.jpg" alt="image">
@@ -18,49 +23,49 @@
             </div>
             <form id="login-form" action="login_handle.php" method="post">
                 <div class="form-group">
-                  <label for="login-email">Email</label>
-                  <input type="email" id="login-email" name="login-email" required>
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="login-email" required>
                 </div>
                 <div class="form-group">
-                  <label for="login-password">Password</label>
-                  <input type="password" id="login-password" name="login-password" required>
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="login-password" required>
                 </div>
                 <div class="btn-container">
                     <button type="submit" class="btn">Login</button>
                     <p class="toggle-link" id="toggle-signup">Not a member ? Signup</p>
                     <p style="color:rgb(51, 157, 233);">
-                    <?php
-                    if(isset($_GET['signupsuccess']) && $_GET['signupsuccess']=="false"){
-                        echo $_GET['error'];
-                    }
-                    ?>
+                        <?php
+                        if (isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == "false") {
+                            echo $_GET['error'];
+                        }
+                        ?>
                     </p>
                 </div>
             </form>
             <form id="signup-form" style="display: none;" action="signup_handle.php" method="post">
                 <div class="avatar-image">
-                  <img src="img/default-avatar.png" alt="Avatar" id="choose-avatar">
-                  <input type="hidden" id="avatar-path" name="avatar-path">
+                    <img src="img/default-avatar.png" alt="Avatar" id="choose-avatar">
+                    <input type="hidden" id="avatar-path" name="avatar-path">
                 </div>
                 <div class="form-group">
-                  <label for="signup-name">Name</label>
-                  <input type="text" id="signup-name" name="signup-name" required>
+                    <label for="signup-name">Name</label>
+                    <input type="text" id="signup-name" name="signup-name" required>
                 </div>
                 <div class="form-group">
-                  <label for="signup-email">Email</label>
-                  <input type="email" id="signup-email" name="signup-email" required>
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" name="signup-email" required>
                 </div>
                 <div class="form-group">
-                  <label for="signup-school">School/College/University</label>
-                  <input type="text" id="signup-school" name="signup-school" required>
+                    <label for="signup-school">School/College/University</label>
+                    <input type="text" id="signup-school" name="signup-school" required>
                 </div>
                 <div class="form-group">
-                  <label for="signup-password">Password</label>
-                  <input type="password" id="signup-password" name="signup-password"required>
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" name="signup-password" required>
                 </div>
                 <div class="form-group confirm-password">
-                  <label for="signup-confirm-password">Confirm Password</label>
-                  <input type="password" id="signup-confirm-password" name="signup-confirm-password" required>
+                    <label for="signup-confirm-password">Confirm Password</label>
+                    <input type="password" id="signup-confirm-password" name="signup-confirm-password" required>
                 </div>
                 <div class="btn-container">
                     <button type="submit" class="btn">Signup</button>
@@ -133,7 +138,7 @@
         });
 
         const avatarImages = document.querySelectorAll('.modal-images img');
-        
+
         const defaultAvatar = document.getElementById('choose-avatar');
         defaultAvatar.addEventListener('click', () => {
             avatarModal.style.display = 'block';
@@ -162,8 +167,9 @@
                 confirmPassword.classList.remove('valid');
                 confirmPassword.classList.add('invalid');
             }
-    });
+        });
 
     </script>
 </body>
+
 </html>

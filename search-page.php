@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search Results</title>
+  <title>Search Results - StudySquad</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <link rel="stylesheet" href="threadStyle.css">
-    <link rel="stylesheet" href="indexStyle.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="indexStyle.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -17,10 +18,12 @@
       margin: 0;
       padding: 0;
     }
-    a{
-        text-decoration: none;
-        color: black;
+
+    a {
+      text-decoration: none;
+      color: black;
     }
+
     .container {
       max-width: 95%;
       margin: 30px;
@@ -29,11 +32,13 @@
       border-radius: 10px;
       overflow-y: auto;
     }
-    .container::-webkit-scrollbar{
-        width: 0;
+
+    .container::-webkit-scrollbar {
+      width: 0;
     }
-    .container p{
-        margin-bottom: 15px;
+
+    .container p {
+      margin-bottom: 15px;
     }
 
     .search-results {
@@ -76,34 +81,36 @@
 </head>
 
 <body>
-<?php include 'partials/_dbconnect.php'; ?>
+  <?php include 'partials/_dbconnect.php'; ?>
   <?php include 'partials/_navbar.php'; ?>
   <div class="container">
-    <p >Search results for : <?php echo $_GET['search'];?></p>
+    <p>Search results for :
+      <?php echo $_GET['search']; ?>
+    </p>
     <div class="search-results">
-    <?php 
-        $noresults = true;
-        $query = $_GET["search"];
-        $sql = "select * from threads where match (thread_title, thread_desc) against ('$query')"; 
-        $result = mysqli_query($conn, $sql);
-        while($row = mysqli_fetch_assoc($result)){
-            $title = $row['thread_title'];
-            $thread_id= $row['thread_id'];
-            $url = "thread.php?threadid=". $thread_id;
-            $noresults = false;
+      <?php
+      $noresults = true;
+      $query = $_GET["search"];
+      $sql = "select * from threads where match (thread_title, thread_desc) against ('$query')";
+      $result = mysqli_query($conn, $sql);
+      while ($row = mysqli_fetch_assoc($result)) {
+        $title = $row['thread_title'];
+        $thread_id = $row['thread_id'];
+        $url = "thread.php?threadid=" . $thread_id;
+        $noresults = false;
 
-            // Display the search result
-            echo '<div class="result-item">
-                        <h2><a href="'. $url. '" class="text-dark">'. $title. '</a> </h2>
-                  </div>'; 
-            }
-        if ($noresults){
-            echo '<p> No search result found. <p>';
-        }        
-    ?>
-        </div>
+        // Display the search result
+        echo '<div class="result-item">
+                        <h2><a href="' . $url . '" class="text-dark">' . $title . '</a> </h2>
+                  </div>';
+      }
+      if ($noresults) {
+        echo '<p> No search result found. <p>';
+      }
+      ?>
     </div>
-    <?php include 'partials/_footer.php'; ?>
+  </div>
+  <?php include 'partials/_footer.php'; ?>
   <script src="indexjs.js"></script>
 </body>
 

@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacts - StudySquad</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <link rel="stylesheet" href="indexStyle.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -23,7 +24,7 @@
       padding: 40px 20px;
       background-color: white;
       border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     }
 
     .header {
@@ -97,11 +98,11 @@
 </head>
 
 <body>
-<?php 
-        session_start();
-     ?>
-<?php include 'partials/_dbconnect.php'; ?>
-    <?php include 'partials/_navbar.php'; ?>
+  <?php
+  session_start();
+  ?>
+  <?php include 'partials/_dbconnect.php'; ?>
+  <?php include 'partials/_navbar.php'; ?>
   <div class="container">
     <div class="header">
       <h1>Contact Us</h1>

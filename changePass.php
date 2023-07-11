@@ -4,85 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Password</title>
+    <title>Change Password - StudySquad</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <style>
         * {
-    box-sizing: border-box;
-}
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
 
-.container {
-    max-width: 400px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-h1 {
-    text-align: center;
-    color: #333;
-}
+        h1 {
+            text-align: center;
+            color: #333;
+        }
 
-form {
-    margin-top: 20px;
-}
+        form {
+            margin-top: 20px;
+        }
 
-.form-group {
-    margin-bottom: 20px;
-}
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-}
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
 
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
-}
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
 
-input[type="password"]:focus {
-    border-color: #333;
-}
+        input[type="password"]:focus {
+            border-color: #333;
+        }
 
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-button:hover {
-    background-color: #555;
-}
-.error-message{
-    margin: 0 40%;
-}
+        button:hover {
+            background-color: #555;
+        }
 
+        .error-message {
+            margin: 0 40%;
+        }
     </style>
 </head>
 
 <body>
-    <?php 
-        session_start();
-     ?>
+    <?php
+    session_start();
+    ?>
     <?php include 'partials/_dbconnect.php'; ?>
 
     <div class="container">
@@ -103,9 +104,9 @@ button:hover {
             <button type="submit">Change Password</button>
         </form>
     </div>
-    
+
     <?php
-    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         $sno = $_SESSION['sno'];
         $sql = "Select * from users where sno='$sno'";
         $result = mysqli_query($conn, $sql);
@@ -117,9 +118,9 @@ button:hover {
         $newPassword = $_POST['new_password'];
         $confirmPassword = $_POST['confirm_password'];
 
-        $showError="false";
-        
-        if (!password_verify($currentPassword, $row['user_pass'])) { 
+        $showError = "false";
+
+        if (!password_verify($currentPassword, $row['user_pass'])) {
             $showError = "Invalid current password.";
         }
 
@@ -127,21 +128,22 @@ button:hover {
             $showError = "Confirm password does not match new password.";
         }
 
-        if ($showError=="false") {
+        if ($showError == "false") {
             $hashnew = password_hash($newPassword, PASSWORD_DEFAULT);
             $sqli = "UPDATE `users` SET user_pass =  '$hashnew' WHERE sno = '$sno'";
-	        $resulti = mysqli_query($conn, $sqli);
+            $resulti = mysqli_query($conn, $sqli);
             header('Location: index.php');
             exit;
         }
-        if ($showError!="false"){
+        if ($showError != "false") {
             echo '<div class="error-message">
-                    <p>'.$showError.'</p>
-            </div>';}
-}
-?>
+                    <p>' . $showError . '</p>
+            </div>';
+        }
+    }
+    ?>
 
-    
+
 </body>
 
 </html>

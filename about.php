@@ -2,15 +2,16 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - StudySquad</title>
-  <link rel="stylesheet" href="indexStyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - StudySquad</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="indexStyle.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <style>
-    body {
+    <style>
+        body {
             font-family: 'Montserrat', sans-serif;
             line-height: 1.5;
             color: #2f2f32;
@@ -40,7 +41,7 @@
         #introduction p {
             font-size: 16px;
             margin-bottom: 15px;
-        }        
+        }
 
         #testimonials {
             padding: 60px 0;
@@ -129,32 +130,37 @@
         /* Media Queries */
 
         @media only screen and (max-width: 768px) {
+
             .testimonial-card,
             .feature-card {
                 flex: 0 0 80%;
             }
         }
-  </style>
+    </style>
 </head>
 
 <body>
-<?php 
-        session_start();
-     ?>
-<?php include 'partials/_dbconnect.php'; ?>
+    <?php
+    session_start();
+    ?>
+    <?php include 'partials/_dbconnect.php'; ?>
     <?php include 'partials/_navbar.php'; ?>
     <section id="introduction">
         <div class="container">
             <h2>About StudySquad</h2>
-            <p>Welcome to StudySquad, your go-to platform for academic discussions and doubt-solving. We are dedicated to creating a supportive and collaborative environment for students to engage in meaningful learning conversations.</p>
-            <p>At StudySquad, we believe that learning is enhanced through interaction and sharing knowledge. Our platform offers a range of discussion categories, providing a space for students to connect, ask questions, and find answers from peers and experts.</p>
+            <p>Welcome to StudySquad, your go-to platform for academic discussions and doubt-solving. We are dedicated
+                to creating a supportive and collaborative environment for students to engage in meaningful learning
+                conversations.</p>
+            <p>At StudySquad, we believe that learning is enhanced through interaction and sharing knowledge. Our
+                platform offers a range of discussion categories, providing a space for students to connect, ask
+                questions, and find answers from peers and experts.</p>
             <p>Join our community today and be a part of the StudySquad family!</p>
             <p>Happy learning,</p>
             <p style="font-weight: 600;">- Amit Kumar</p>
         </div>
     </section>
 
-    
+
 
     <section id="testimonials">
         <div class="container">
@@ -162,17 +168,20 @@
             <div class="testimonial-row">
                 <div class="testimonial-card">
                     <img src="img/a4.jpg" alt="User 1">
-                    <p>"StudySquad has been a game-changer for me. I've found amazing study groups and got help with my doubts. Highly recommended!"</p>
+                    <p>"StudySquad has been a game-changer for me. I've found amazing study groups and got help with my
+                        doubts. Highly recommended!"</p>
                     <p>- Rajat Patel</p>
                 </div>
                 <div class="testimonial-card">
                     <img src="img/a6.jpg" alt="User 2">
-                    <p>"The StudySquad community is so supportive and friendly. It's a great platform to connect with like-minded students and expand your knowledge."</p>
+                    <p>"The StudySquad community is so supportive and friendly. It's a great platform to connect with
+                        like-minded students and expand your knowledge."</p>
                     <p>- Neha Shankar</p>
                 </div>
                 <div class="testimonial-card">
                     <img src="img/a8.jpg" alt="User 3">
-                    <p>"I'm grateful for StudySquad. Whenever I'm stuck with a question, I can rely on the community to provide valuable insights and solutions."</p>
+                    <p>"I'm grateful for StudySquad. Whenever I'm stuck with a question, I can rely on the community to
+                        provide valuable insights and solutions."</p>
                     <p>- Vishwas Gupta</p>
                 </div>
             </div>
@@ -186,12 +195,14 @@
                 <div class="feature-card">
                     <span class="feature-icon">📚</span>
                     <h3>Knowledge Sharing</h3>
-                    <p>Share your knowledge, expertise, and study resources with fellow students, promoting collaborative learning.</p>
+                    <p>Share your knowledge, expertise, and study resources with fellow students, promoting
+                        collaborative learning.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">💬</span>
                     <h3>Engaging Discussions</h3>
-                    <p>Participate in meaningful discussions, ask questions, and contribute to an active and vibrant community.</p>
+                    <p>Participate in meaningful discussions, ask questions, and contribute to an active and vibrant
+                        community.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🔍</span>
@@ -206,8 +217,8 @@
             </div>
         </div>
     </section>
-  <?php include 'partials/_footer.php'; ?>
-  <script src="indexjs.js"></script>
+    <?php include 'partials/_footer.php'; ?>
+    <script src="indexjs.js"></script>
 </body>
 
 </html>

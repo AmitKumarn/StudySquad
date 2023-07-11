@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ThreadList</title>
+  <title>ThreadList - StudySquad</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <link rel="stylesheet" href="indexStyle.css">
   <link rel="stylesheet" href="threadlistStyle.css">
   <link rel="stylesheet"
@@ -36,12 +37,12 @@
 
   ?>
   <?php
-      if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_thread'])) {
-        $threadId = $_POST['thread_id'];
-        $sqld = "DELETE FROM threads WHERE thread_id = $threadId";
-        $resultd = mysqli_query($conn, $sqld);
-      }
-?>
+  if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_thread'])) {
+    $threadId = $_POST['thread_id'];
+    $sqld = "DELETE FROM threads WHERE thread_id = $threadId";
+    $resultd = mysqli_query($conn, $sqld);
+  }
+  ?>
   <div class="group-banner">
     <img src="<?php echo $img; ?>" alt="Group Image" class="group-image">
     <div class="group-info">
@@ -140,16 +141,16 @@
         if ($rowu['user_email'] == 'admin@studysquad.com') {
           echo
             '<div class="btn1-container">
-            <form action="'.$_SERVER["REQUEST_URI"].'" method="POST">
+            <form action="' . $_SERVER["REQUEST_URI"] . '" method="POST">
               <input type="hidden" name="thread_id" value="' . $id . '">
               <button class="btn1" type="submit" name="delete_thread">Delete</button>
             </form>
           </div>
           ';
         }
-      } 
-      
-      
+      }
+
+
       echo '
       </div>
     </div>
@@ -160,7 +161,7 @@
     }
     echo '</div>';
     ?>
-    
+
     <?php include 'partials/_footer.php'; ?>
     <script src="indexjs.js"></script>
     <script>
