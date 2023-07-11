@@ -19,6 +19,7 @@
     }
     a{
         text-decoration: none;
+        color: black;
     }
     .container {
       max-width: 95%;

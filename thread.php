@@ -30,7 +30,6 @@
         $dateTime = new DateTime($thread_time);
         $dateMonthYear = $dateTime->format('d-m-Y');
         $thread_user_id = $row['thread_user_id'];
-        $com_no = $row['com_no'];
 
         $sql2 = "SELECT * FROM `users` WHERE sno='$thread_user_id'";
         $result2 = mysqli_query($conn, $sql2);
@@ -38,6 +37,22 @@
   }
 
   ?>
+  <?php
+      if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_comment'])) {
+        $comId = $_POST['comment_id'];
+        $sqlr = "DELETE FROM replies WHERE comment_id = $comId";
+        $resultr = mysqli_query($conn, $sqlr);
+        $sqld = "DELETE FROM comments WHERE comment_id = $comId";
+        $resultd = mysqli_query($conn, $sqld);
+      }
+?>
+<?php
+      if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_reply'])) {
+        $replyId = $_POST['reply_id'];
+        $sqld = "DELETE FROM replies WHERE reply_id = $replyId";
+        $resultd = mysqli_query($conn, $sqld);
+      }
+?>
     <div class="container">
         <div class="user-info">
             <img src="<?php echo $row2['img_path'];?>" alt="User-icon" class="user-img">
@@ -66,6 +81,8 @@
         if($method == 'POST' && isset($_POST['comment'])){
         
             $comment = $_POST['comment'];
+            $comment = str_replace("<", "&lt;", $comment);
+            $comment = str_replace(">", "&gt;", $comment);
 
             $sql = "INSERT INTO `comments` (`comment_content`, `thread_id`, `comment_by`,`comment_time`) VALUES ( '$comment', '$thread_id','$sno', current_timestamp())";
             $result = mysqli_query($conn, $sql);
@@ -79,6 +96,8 @@
             if($method == 'POST' && isset($_POST['reply'])){
             
                 $reply = $_POST['reply'];
+                $reply = str_replace("<", "&lt;", $reply);
+                $reply = str_replace(">", "&gt;", $reply);
                 $comment_id = $_POST['comment_id'];
 
                 $sqli = "INSERT INTO `replies` (`reply_content`, `comment_id`, `reply_by`,`reply_time`) VALUES ( '$reply', '$comment_id', '$sno',current_timestamp())";
@@ -92,14 +111,14 @@
             $id = $_GET['threadid'];
             $sql = "SELECT * FROM `comments` WHERE thread_id=$id"; 
             $result = mysqli_query($conn, $sql);
+            $CommentCount = mysqli_num_rows($result);
             $noResult = true;
-            echo '<p class="comment-count"><span class="material-symbols-outlined">comment</span>'.$com_no.' comments</p>';
+            echo '<p class="comment-count"><span class="material-symbols-outlined">comment</span>'.$CommentCount.' comments</p>';
             while($row = mysqli_fetch_assoc($result)){
                 $noResult = false;
                 $id = $row['comment_id'];
                 $content = $row['comment_content']; 
                 $comment_time = $row['comment_time'];
-                $reply_no = $row['reply_no'];
                 $dateTime = new DateTime($comment_time);
                 $dateMonthYear = $dateTime->format('d-m-Y');
                 $thread_user_id = $row['comment_by']; 
@@ -116,9 +135,28 @@
                         <p>'.$dateMonthYear.'</p>
                     </div>
                     <div class="comment-desc">'.$content.'</div>
-                </div>
-            </div>
-            <p>'.$reply_no.' replies</p>';
+                </div>';
+                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                    $snou = $_SESSION['sno'];
+                    $sqlu = "Select * from users where sno='$snou'";
+                    $resultu = mysqli_query($conn, $sqlu);
+                    $rowu = mysqli_fetch_assoc($resultu);
+                    if ($rowu['user_email'] == 'admin@studysquad.com') {
+                      echo
+                        '<div class="btn1-container">
+                        <form action="'.$_SERVER["REQUEST_URI"].'" method="POST">
+                          <input type="hidden" name="comment_id" value="' . $id . '">
+                          <button class="btn1" type="submit" name="delete_comment">Delete</button>
+                        </form>
+                      </div>
+                      ';
+                    }
+                  } 
+            echo '</div>';
+            $sqlr = "SELECT * FROM `replies` WHERE comment_id=$id"; 
+            $resultr = mysqli_query($conn, $sqlr);
+            $replyCount = mysqli_num_rows($resultr);
+            echo '<p>'.$replyCount.' replies</p>';
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
             echo '<p class="reply-opt"  onclick="toggleReply(event)">Reply</p>
                 <form action="'. $_SERVER['REQUEST_URI'] . '" method="post" class="reply-box" id="replyClick">
@@ -128,7 +166,7 @@
                     <button class="btn" type="sibmit"><span class="material-icons">send</span></button>
                 </form>';
             }
-            
+            echo '<div class="reply-section">';
             $sql3 = "SELECT * FROM `replies` WHERE comment_id=$id"; 
             $result3 = mysqli_query($conn, $sql3);
             while($row3 = mysqli_fetch_assoc($result3)){
@@ -152,10 +190,28 @@
                             <p>'.$dateMonthYear.'</p>
                         </div>
                         <div class="reply-desc">'.$reply_content.'</div>
-                    </div>
-                </div>  
-            </div>
+                    </div>';
+                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                    $snou = $_SESSION['sno'];
+                    $sqlu = "Select * from users where sno='$snou'";
+                    $resultu = mysqli_query($conn, $sqlu);
+                    $rowu = mysqli_fetch_assoc($resultu);
+                    if ($rowu['user_email'] == 'admin@studysquad.com') {
+                      echo
+                        '<div class="btn1-container">
+                        <form action="'.$_SERVER["REQUEST_URI"].'" method="POST">
+                          <input type="hidden" name="reply_id" value="' . $reply_id . '">
+                          <button class="btn1" type="submit" name="delete_reply">Delete</button>
+                        </form>
+                      </div>
+                      ';
+                    }
+                  } 
+                  
+            echo '</div>
+                </div>
                 ';}
+            echo '</div>';
 
                 }
                 if($noResult){

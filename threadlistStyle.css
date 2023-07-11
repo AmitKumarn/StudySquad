@@ -9,9 +9,9 @@ h1,p{
   margin: 0;
 }
 a{
-  text-decoration: none;
-}
-
+    text-decoration: none;
+    color: black;
+  }
 .group-banner {
   background-color: white;
   padding: 35px;
@@ -171,7 +171,22 @@ a{
   margin: 10px;
   font-size: 14px;
 }
-
+.btn1-container{
+  text-align: right;
+}
+.btn1{
+  padding: 5px 10px;
+  background-color: #3885e4;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+form{
+  margin: 0;
+}
 @media screen and (max-width: 750px) {
   .user-icon {
     width: 60px;

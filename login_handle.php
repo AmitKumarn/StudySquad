@@ -17,14 +17,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         } 
         else{
             $showError = "Incorrect Password";
-            header("Location: /studysquad/login.php?signupsuccess=false&error=$showError");
+            header("Location: login.php?signupsuccess=false&error=$showError");
             exit();
         }
         header("Location: index.php");  
     }
     else{
         $showError = "User Email not found";
-        header("Location: /studysquad/login.php?signupsuccess=false&error=$showError");
+        header("Location: login.php?signupsuccess=false&error=$showError");
         exit();
     }
 }

@@ -24,7 +24,7 @@
             </ul>
             <ul class="nav-menu-right">
                 <li>
-                <form action="search-page.php" method="get" >
+                <form action="search-page.php" method="get" class="searchBar">
                     <div class="search-bar">
                         <span class="material-symbols-outlined" onclick="toggleSearch()">search</span>
                         <input type="text" placeholder="Search" id="search-form" name="search">
@@ -69,18 +69,20 @@
             <div class="profile">
                 <div class="user-info">
                     <img src="./'.$row['img_path'].'">
-                    <h3>'.$row['user_name'].'</h3>
+                    <div class="nameSchool">
+                        <h4>'.$row['user_name'].'</h3>
+                        <p>Student at '.$row['user_school'].'</p>
+                    </div>
                 </div>
                 <hr>
-                <a href="#" class="profile-menu-link">
-                    <span class="material-symbols-outlined icon">person</span>
-                    <p>Edit Profile</p>
+                <div class="profile-menu-link">
+                    <span class="material-symbols-outlined icon">mail</span>
+                    <p>'.$row['user_email'].'</p>
+                </div>
+                <a href="changePass.php" class="profile-menu-link">
+                    <span class="material-symbols-outlined icon">key</span>
+                    <p>Change Password</p>
                     <span class="material-symbols-outlined">arrow_right</span>
-                </a>
-                <a href="/" class="profile-menu-link">
-                    <span class="material-symbols-outlined icon">paid</span>
-                    <p>Level</p>
-                    <span class="points">Basic</span>
                 </a>
                 <a href="./partials/logout.php" class="profile-menu-link">
                     <span class="material-symbols-outlined icon">logout</span>

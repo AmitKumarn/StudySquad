@@ -159,14 +159,16 @@ hr{
   border-radius: 10px;
   color: rgb(50, 114, 242);
 }
-.reply{
-  margin-left: 70px;
-  padding: 10px;
+.reply-section{
   overflow-y: auto;
   max-height: 250px;
 }
-.reply::-webkit-scrollbar{
+.reply-section::-webkit-scrollbar{
   width: 0;
+}
+.reply{
+  margin-left: 70px;
+  padding: 10px;
 }
 
 .reply-item{
@@ -193,7 +195,20 @@ hr{
 .replier p{
   font-size: 13px;
 }
-
+.btn1-container{
+  text-align: right;
+}
+.btn1{
+  padding: 5px 10px;
+  background-color: #3885e4;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left : 10px;
+}
 .box{
   width: 40%;
   height: 50px;
@@ -227,6 +242,9 @@ textarea::-webkit-scrollbar{
   margin-bottom: 15px;
 }
 
+form{
+  margin: 0;
+}
 @media screen and (max-width: 545px) {
   h3{
     font-size: 16px;

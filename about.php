@@ -11,132 +11,201 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f1f1f1;
-      margin: 0;
-      padding: 0;
-    }
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.5;
+            color: #2f2f32;
+            background-color: #eeeeee;
+        }
 
-    .container {
-      width: 90%;
-      margin: 20px auto;
-      padding: 20px 20px;
-      background: linear-gradient(15deg, #8787cf,#D4D4FF);
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
 
-    .header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+        #introduction {
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
+            background-color: #fffffe;
+        }
 
-    .header h1 {
-      color: rgb(0, 145, 255);
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
+        #introduction h2 {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
 
-    .header p {
-      color: #666;
-      font-size: 16px;
-      margin-bottom: 5px;
-    }
+        #introduction p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }        
 
-    .categories {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 40px;
-    }
+        #testimonials {
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 10px;
+        }
 
-    .category-card {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      width: 250px;
-      text-align: center;
-      transition: transform 0.3s ease-in-out;
-    }
+        #testimonials h2 {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
 
-    .category-card:hover {
-      transform: translateY(-5px);
-    }
+        .testimonial-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-    .category-card h3 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      color: #333;
-    }
+        .testimonial-card {
+            flex: 0 0 250px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
 
-    .category-card p {
-      font-size: 16px;
-      color: #666;
-    }
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
 
-    .description {
-      color: #333;
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 40px;
-      margin-top: 30px;
-    }
+        .testimonial-card p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
 
-    @media (max-width: 768px) {
-      .category-card {
-        width: 100%;
-      }
-      .description {
-        font-size: 14px;
-      }
-    }
+        .testimonial-card p:last-child {
+            font-weight: bold;
+        }
+
+        #features {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        #features h2 {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .feature-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .feature-card {
+            flex: 0 0 220px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .feature-card .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* Media Queries */
+
+        @media only screen and (max-width: 768px) {
+            .testimonial-card,
+            .feature-card {
+                flex: 0 0 80%;
+            }
+        }
   </style>
 </head>
 
 <body>
+<?php 
+        session_start();
+     ?>
+<?php include 'partials/_dbconnect.php'; ?>
     <?php include 'partials/_navbar.php'; ?>
-  <div class="container">
-    <div class="header">
-      <h1>About the Forum - StudySquad</h1>
-      <p>StudySquad is a discussion forum where students can collaborate, share knowledge, and seek assistance on various subjects and topics.
-      <br>These are various categories on which you can discuss any doubts related to your academics.</p>
-    </div>
+    <section id="introduction">
+        <div class="container">
+            <h2>About StudySquad</h2>
+            <p>Welcome to StudySquad, your go-to platform for academic discussions and doubt-solving. We are dedicated to creating a supportive and collaborative environment for students to engage in meaningful learning conversations.</p>
+            <p>At StudySquad, we believe that learning is enhanced through interaction and sharing knowledge. Our platform offers a range of discussion categories, providing a space for students to connect, ask questions, and find answers from peers and experts.</p>
+            <p>Join our community today and be a part of the StudySquad family!</p>
+            <p>Happy learning,</p>
+            <p style="font-weight: 600;">- Amit Kumar</p>
+        </div>
+    </section>
 
-    <div class="categories">
-      <div class="category-card">
-        <h3>Class X</h3>
-      </div>
-      <div class="category-card">
-        <h3>Class XI-XII</h3>
-      </div>
-      <div class="category-card">
-        <h3>JEE Mains</h3>
-      </div>
-      <div class="category-card">
-        <h3>JEE Advanced</h3>
-      </div>
-      <div class="category-card">
-        <h3>NEET</h3>
-      </div>
-      <div class="category-card">
-        <h3>B.Tech UG</h3>
-      </div>
-      <div class="category-card">
-        <h3>College Admission</h3>
-      </div>
-      <div class="category-card">
-        <h3>Career Guidance</h3>
-      </div>
-    </div>
+    
 
-    <div class="description">
-      <p>We believe that learning is enhanced through interaction and collaboration. Whether you're a high school student preparing for exams, a college student exploring career paths, or a professional seeking educational resources, our forum provides a space to ask questions, share insights, and gain valuable knowledge.</p>
-      <p>Our dedicated team of moderators ensures a safe and respectful environment for everyone. We encourage constructive discussions, active participation, and a willingness to help one another. Together, we can overcome challenges, expand our horizons, and make meaningful connections.</p>
-      <p>Join our community today and embark on a journey of learning, growth, and inspiration. Together, let's make education a collaborative and enriching experience!</p>
-    </div>
-  </div>
+    <section id="testimonials">
+        <div class="container">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial-row">
+                <div class="testimonial-card">
+                    <img src="img/a4.jpg" alt="User 1">
+                    <p>"StudySquad has been a game-changer for me. I've found amazing study groups and got help with my doubts. Highly recommended!"</p>
+                    <p>- Rajat Patel</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="img/a6.jpg" alt="User 2">
+                    <p>"The StudySquad community is so supportive and friendly. It's a great platform to connect with like-minded students and expand your knowledge."</p>
+                    <p>- Neha Shankar</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="img/a8.jpg" alt="User 3">
+                    <p>"I'm grateful for StudySquad. Whenever I'm stuck with a question, I can rely on the community to provide valuable insights and solutions."</p>
+                    <p>- Vishwas Gupta</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="feature-row">
+                <div class="feature-card">
+                    <span class="feature-icon">📚</span>
+                    <h3>Knowledge Sharing</h3>
+                    <p>Share your knowledge, expertise, and study resources with fellow students, promoting collaborative learning.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">💬</span>
+                    <h3>Engaging Discussions</h3>
+                    <p>Participate in meaningful discussions, ask questions, and contribute to an active and vibrant community.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔍</span>
+                    <h3>Doubt Resolution</h3>
+                    <p>Get answers to your doubts and questions from experienced users and subject matter experts.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🌟</span>
+                    <h3>Personalized Experience</h3>
+                    <p>Different Categories for students of different standard for enhanced discussion experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
   <?php include 'partials/_footer.php'; ?>
   <script src="indexjs.js"></script>
 </body>

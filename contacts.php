@@ -97,7 +97,11 @@
 </head>
 
 <body>
-<?php include 'partials/_navbar.php'; ?>
+<?php 
+        session_start();
+     ?>
+<?php include 'partials/_dbconnect.php'; ?>
+    <?php include 'partials/_navbar.php'; ?>
   <div class="container">
     <div class="header">
       <h1>Contact Us</h1>

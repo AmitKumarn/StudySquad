@@ -4,37 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudySquad</title>
-    <link rel="stylesheet" href="indexStyle.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Montserrat:wght@300&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" type = "text/css" href="indexStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-<style>
-    .profile-icon {
-        position: relative;
-        border: 1px solid rgb(6, 240, 6);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 36px;
-        width: 36px;
-        border-radius: 50%;
-    }
-
-    .profile-icon img {
-        width: 99%;
-        border-radius: 50%;
-    }
-
-    .search-bar{
-        background-color: white;
-    }
-    #search-form{
-        background-color: white;
-    }
-</style>
-
 <body>
 <?php 
         session_start();
