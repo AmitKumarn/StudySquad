@@ -35,11 +35,9 @@
         form {
             margin-top: 20px;
         }
-
         .form-group {
             margin-bottom: 20px;
         }
-
         label {
             display: block;
             margin-bottom: 5px;
@@ -53,7 +51,6 @@
             border-radius: 4px;
             transition: border-color 0.3s ease;
         }
-
         input[type="password"]:focus {
             border-color: #333;
         }
@@ -69,7 +66,6 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-
         button:hover {
             background-color: #555;
         }
@@ -82,9 +78,9 @@
 
 <body>
     <?php
-    session_start();
+    session_start();    // starting session for this page
     ?>
-    <?php include 'partials/_dbconnect.php'; ?>
+    <?php include 'partials/_dbconnect.php'; ?> <!--including to establish connection with database -->
 
     <div class="container">
         <h1>Change Password</h1>
@@ -106,6 +102,7 @@
     </div>
 
     <?php
+    // to get detail of logged in user
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         $sno = $_SESSION['sno'];
         $sql = "Select * from users where sno='$sno'";
@@ -120,15 +117,15 @@
 
         $showError = "false";
 
-        if (!password_verify($currentPassword, $row['user_pass'])) {
+        if (!password_verify($currentPassword, $row['user_pass'])) { 
             $showError = "Invalid current password.";
         }
 
-        if ($newPassword !== $confirmPassword) {
+        if ($newPassword !== $confirmPassword) { 
             $showError = "Confirm password does not match new password.";
         }
 
-        if ($showError == "false") {
+        if ($showError == "false") { // inserting new password to database
             $hashnew = password_hash($newPassword, PASSWORD_DEFAULT);
             $sqli = "UPDATE `users` SET user_pass =  '$hashnew' WHERE sno = '$sno'";
             $resulti = mysqli_query($conn, $sqli);
@@ -142,7 +139,6 @@
         }
     }
     ?>
-
 
 </body>
 

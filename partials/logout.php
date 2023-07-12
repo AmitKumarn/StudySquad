@@ -1,7 +1,7 @@
 <?php
-session_start();
-echo "Logging you out. Please wait...";
+    session_start();    // starting session for this page
+    echo "Logging you out. Please wait...";
 
-session_destroy();
-header("Location: ../index.php")
+    session_destroy();  // destroying the session
+    header("Location: ../index.php")
 ?>

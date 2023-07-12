@@ -23,7 +23,7 @@
             margin: 0 auto;
             padding: 0 15px;
         }
-
+        /* css for introduction section starts */
         #introduction {
             padding: 60px 0;
             text-align: center;
@@ -32,34 +32,29 @@
             margin-bottom: 20px;
             background-color: #fffffe;
         }
-
         #introduction h2 {
             font-size: 30px;
             margin-bottom: 30px;
         }
-
         #introduction p {
             font-size: 16px;
             margin-bottom: 15px;
         }
-
+        /* css for testimonials section starts */
         #testimonials {
             padding: 60px 0;
             text-align: center;
             border-radius: 10px;
         }
-
         #testimonials h2 {
             font-size: 30px;
             margin-bottom: 30px;
         }
-
         .testimonial-row {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
         }
-
         .testimonial-card {
             flex: 0 0 250px;
             background-color: #ffffff;
@@ -69,39 +64,33 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
-
         .testimonial-card img {
             width: 80px;
             height: 80px;
             border-radius: 50%;
             margin-bottom: 15px;
         }
-
         .testimonial-card p {
             font-size: 16px;
             margin-bottom: 10px;
         }
-
         .testimonial-card p:last-child {
             font-weight: bold;
         }
-
+        /* css for features section starts */
         #features {
             padding: 60px 0;
             text-align: center;
         }
-
         #features h2 {
             font-size: 30px;
             margin-bottom: 30px;
         }
-
         .feature-row {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
         }
-
         .feature-card {
             flex: 0 0 220px;
             background-color: #ffffff;
@@ -111,17 +100,14 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
-
         .feature-card .feature-icon {
             font-size: 48px;
             margin-bottom: 20px;
         }
-
         .feature-card h3 {
             font-size: 24px;
             margin-bottom: 10px;
         }
-
         .feature-card p {
             font-size: 16px;
             margin-bottom: 20px;
@@ -141,10 +127,11 @@
 
 <body>
     <?php
-    session_start();
+    session_start(); // starting the session for this page
     ?>
-    <?php include 'partials/_dbconnect.php'; ?>
-    <?php include 'partials/_navbar.php'; ?>
+    <?php include 'partials/_dbconnect.php'; ?> <!--including to establish connection with database -->
+    <?php include 'partials/_navbar.php'; ?>    <!--including for navigation bar -->
+    
     <section id="introduction">
         <div class="container">
             <h2>About StudySquad</h2>
@@ -159,8 +146,6 @@
             <p style="font-weight: 600;">- Amit Kumar</p>
         </div>
     </section>
-
-
 
     <section id="testimonials">
         <div class="container">
@@ -217,8 +202,8 @@
             </div>
         </div>
     </section>
-    <?php include 'partials/_footer.php'; ?>
-    <script src="indexjs.js"></script>
+    <?php include 'partials/_footer.php'; ?> <!--including for footer -->
+    <script src="navbarjs.js"></script>  <!--contains javascript for navbar -->
 </body>
 
 </html>

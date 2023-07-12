@@ -31,26 +31,28 @@
                     </div>
                 </form>
                 </li>';
+                // if user is logged in then showing his profile-icon
                 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
                     $sno = $_SESSION['sno'];
                     $sql = "Select * from users where sno='$sno'";
                     $result = mysqli_query($conn, $sql);
                     $row = mysqli_fetch_assoc($result);
                     echo '<li>
-                        <div class="profile-icon" onclick="toggleProfile()">
-                            <img src="./'.$row['img_path'].'" alt="">
-                        </div>
-                    </li>';
+                            <div class="profile-icon" onclick="toggleProfile()">
+                                <img src="./'.$row['img_path'].'" alt="">
+                            </div>
+                          </li>';
                 }
+                // else showing login button
                 else{
                     echo '<li>
-                    <a href="login.php"><button class="btn">Login</button></a>
-                </li>';
-                }
+                            <a href="login.php"><button class="btn">Login</button></a>
+                          </li>';
+                    }
 
                 echo '<li class="menu-toggle">
-                    <span class="material-symbols-outlined" onclick="toggleMenu()">menu</span>
-                </li>
+                        <span class="material-symbols-outlined" onclick="toggleMenu()">menu</span>
+                    </li>
             </ul>
         </div>
         <form action="./search-page.php" method="get" >
@@ -60,15 +62,16 @@
             </div>
         </form>
         <div class="menu-clicked" id="offset"></div>';
+        // if user is logged in he can see his profile details by clicking on profile-icon
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
             $sno = $_SESSION['sno'];
             $sql = "Select * from users where sno='$sno'";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
         echo '<div class="profile-wrap" id="subprofile">
-            <div class="profile">
-                <div class="user-info">
-                    <img src="./'.$row['img_path'].'">
+                <div class="profile">
+                    <div class="user-info">
+                        <img src="./'.$row['img_path'].'">
                     <div class="nameSchool">
                         <h4>'.$row['user_name'].'</h3>
                         <p>Student at '.$row['user_school'].'</p>

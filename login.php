@@ -35,6 +35,7 @@
                     <p class="toggle-link" id="toggle-signup">Not a member ? Signup</p>
                     <p style="color:rgb(51, 157, 233);">
                         <?php
+                        // showing the error if any either in login part or signup part
                         if (isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == "false") {
                             echo $_GET['error'];
                         }
@@ -105,7 +106,7 @@
         const modalClose = document.querySelector('.modal-close');
         const mainContainer = document.getElementById('main-container');
 
-        const toggleSignupForms = () => {
+        const toggleSignupForms = () => { // function to toggle from login to signup
             signupBtn.classList.add('active');
             loginBtn.classList.remove('active');
             signupForm.style.display = 'block';
@@ -118,7 +119,7 @@
         signupBtn.addEventListener('click', toggleSignupForms);
         toggleSignupLink.addEventListener('click', toggleSignupForms);
 
-        const toggleLoginForms = () => {
+        const toggleLoginForms = () => {    // function to toggle from signup to login
             signupBtn.classList.remove('active');
             loginBtn.classList.add('active');
             signupForm.style.display = 'none';
@@ -129,22 +130,22 @@
         loginBtn.addEventListener('click', toggleLoginForms);
         toggleLoginLink.addEventListener('click', toggleLoginForms);
 
-        chooseAvatarLink.addEventListener('click', () => {
+        chooseAvatarLink.addEventListener('click', () => {  // opening avatar modal
             avatarModal.style.display = 'block';
         });
 
-        modalClose.addEventListener('click', () => {
+        modalClose.addEventListener('click', () => {    // closing the modal for avatar
             avatarModal.style.display = 'none';
         });
 
         const avatarImages = document.querySelectorAll('.modal-images img');
 
-        const defaultAvatar = document.getElementById('choose-avatar');
-        defaultAvatar.addEventListener('click', () => {
+        const defaultAvatar = document.getElementById('choose-avatar'); 
+        defaultAvatar.addEventListener('click', () => { // opening avatar modal on clicking default avatar image
             avatarModal.style.display = 'block';
         });
 
-        avatarImages.forEach((avatar) => {
+        avatarImages.forEach((avatar) => {  // function to get image path of the chosen avatar image
             avatar.addEventListener('click', () => {
                 const chosenAvatar = avatar.getAttribute('src');
                 const defaultAvatar = document.getElementById('choose-avatar');
@@ -157,7 +158,7 @@
 
         const confirmPassword = document.getElementById('signup-confirm-password');
 
-        confirmPassword.addEventListener('input', () => {
+        confirmPassword.addEventListener('input', () => {   // function to change color of confirm password input field based on correct or incorrect password
             const password = document.getElementById('signup-password').value;
             if (confirmPassword.value === password) {
                 confirmPassword.classList.remove('invalid');

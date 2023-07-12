@@ -10,6 +10,7 @@ body {
 h1,h2,h3,h4,h5,h6{
     margin: 0;
 }
+/* css for navbar starts here */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -234,6 +235,7 @@ form{
     background-color: rgb(221, 217, 217);
     z-index: -100;
 }
+/* css for intro section starts here */
 .intro{
     background: linear-gradient(15deg, #8787cf,#D4D4FF);
     display: flex;
@@ -267,6 +269,7 @@ form{
     margin-bottom: 45px;
 }
 
+/* css for category section starts here */
 .section{
     background-color: #E1E8F0;
 }
@@ -333,6 +336,7 @@ form{
     color: #6161ff;
     border: 2px solid #6161ff;
 }
+/* css for footer section */
 .footer {
     background-color: #2b3035;
     padding: 12px 0;
@@ -371,7 +375,7 @@ form{
         'GRAD' 0,
         'opsz' 48
 }
-
+/* media queries */
 @media screen and (min-width: 876px){
     .menu-toggle{
         display: none;

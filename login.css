@@ -157,7 +157,7 @@ body{
 .modal-images img:hover {
     opacity: 0.8;
 }
-
+/* media queries */
 @media screen and (max-width: 1000px) {
     .container{
         flex-direction: column;

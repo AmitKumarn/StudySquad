@@ -14,10 +14,10 @@
 
 <body>
     <?php
-    session_start();
+    session_start(); // starting the session for this page
     ?>
-    <?php include 'partials/_dbconnect.php'; ?>
-    <?php include 'partials/_navbar.php'; ?>
+    <?php include 'partials/_dbconnect.php'; ?> <!--including to establish connection with database -->
+    <?php include 'partials/_navbar.php'; ?>    <!--including for navigation bar -->
 
     <header>
         <div class="intro">
@@ -39,6 +39,7 @@
         </div>
     </header>
     <?php
+    // alert message after successful signup
     if (isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == "true") {
         echo '<script>
                     alert ("You can now login");
@@ -53,6 +54,7 @@
             <div class="category-row">
 
                 <?php
+                // fetching all information from group table of database 
                 $sql = "SELECT * FROM `group`";
                 $result = mysqli_query($conn, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -75,8 +77,9 @@
             </div>
         </div>
     </section>
-    <?php include 'partials/_footer.php'; ?>
-    <script src="indexjs.js"></script>
+
+    <?php include 'partials/_footer.php'; ?>    <!--including for footer -->
+    <script src="navbarjs.js"></script>     <!--contains javascript for navbar -->
 </body>
 
 </html>

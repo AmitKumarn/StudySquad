@@ -81,14 +81,16 @@
 </head>
 
 <body>
-  <?php include 'partials/_dbconnect.php'; ?>
-  <?php include 'partials/_navbar.php'; ?>
+  <?php session_start(); ?>
+  <?php include 'partials/_dbconnect.php'; ?> <!--including to establish connection with database -->
+  <?php include 'partials/_navbar.php'; ?>  <!--including for navigation bar -->
   <div class="container">
     <p>Search results for :
       <?php echo $_GET['search']; ?>
     </p>
     <div class="search-results">
       <?php
+      // fetching all threads matching with the search keyword
       $noresults = true;
       $query = $_GET["search"];
       $sql = "select * from threads where match (thread_title, thread_desc) against ('$query')";
@@ -110,8 +112,8 @@
       ?>
     </div>
   </div>
-  <?php include 'partials/_footer.php'; ?>
-  <script src="indexjs.js"></script>
+  <?php include 'partials/_footer.php'; ?>  <!--including for footer -->
+  <script src="navbarjs.js"></script> <!--contains javascript for navbar -->
 </body>
 
 </html>

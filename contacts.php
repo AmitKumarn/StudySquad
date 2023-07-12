@@ -31,13 +31,11 @@
       text-align: center;
       margin-bottom: 40px;
     }
-
     .header h1 {
       color: #333;
       font-size: 32px;
       margin-bottom: 10px;
     }
-
     .header p {
       color: #666;
       font-size: 18px;
@@ -54,26 +52,22 @@
       flex-wrap: wrap;
       column-gap: 20px;
     }
-
     .contact-item {
       display: flex;
       align-items: center;
       margin-bottom: 20px;
     }
-
     .contact-item img {
       width: 50px;
       height: 50px;
       border-radius: 50%;
       margin-right: 20px;
     }
-
     .contact-item h3 {
       font-size: 18px;
       color: #333;
       margin: 0;
     }
-
     .contact-item p {
       font-size: 14px;
       color: #666;
@@ -85,11 +79,9 @@
         width: 40px;
         height: 40px;
       }
-
       .contact-item h3 {
         font-size: 16px;
       }
-
       .contact-item p {
         font-size: 12px;
       }
@@ -99,10 +91,10 @@
 
 <body>
   <?php
-  session_start();
+  session_start();  // starting the session for this page
   ?>
-  <?php include 'partials/_dbconnect.php'; ?>
-  <?php include 'partials/_navbar.php'; ?>
+  <?php include 'partials/_dbconnect.php'; ?> <!--including to establish connection with database -->
+  <?php include 'partials/_navbar.php'; ?>  <!--including for navigation bar -->
   <div class="container">
     <div class="header">
       <h1>Contact Us</h1>
@@ -133,8 +125,9 @@
       </li>
     </ul>
   </div>
-  <?php include 'partials/_footer.php'; ?>
-  <script src="indexjs.js"></script>
+
+  <?php include 'partials/_footer.php'; ?>  <!--including for footer -->
+  <script src="navbarjs.js"></script>   <!--contains javascript for navbar -->
 </body>
 
 </html>
